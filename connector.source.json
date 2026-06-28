@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "extensionId": "irodori.s3-tables",
+  "visibility": "public",
+  "version": "0.1.0",
+  "connector": {
+    "id": "s3Tables.connector",
+    "engine": "s3Tables",
+    "label": "S3 Tables",
+    "aliases": [
+      "s3Tables",
+      "s3-tables",
+      "AWS S3 Tables",
+      "S3",
+      "Tables"
+    ],
+    "defaultPort": 443,
+    "wire": "lakehouse",
+    "module": "s3Tables.driver",
+    "features": [
+      "metadata",
+      "sql"
+    ]
+  },
+  "connection": {
+    "endpoint": {
+      "modes": [
+        "cloudResource",
+        "customEndpoint",
+        "connectionString"
+      ],
+      "defaultPort": 443,
+      "fields": [
+        {
+          "id": "region",
+          "label": "AWS region",
+          "type": "string",
+          "option": "region",
+          "required": true
+        },
+        {
+          "id": "endpoint",
+          "label": "Custom endpoint",
+          "type": "uri",
+          "profileField": "host"
+        }
+      ]
+    },
+    "authMethods": [
+      "none",
+      "connectionString",
+      "awsSigV4",
+      "awsProfile",
+      "awsSso",
+      "webIdentity",
+      "sessionToken",
+      "customDriverOptions"
+    ],
+    "tls": "required",
+    "transports": "default",
+    "optionNamespaces": [
+      "lakehouse",
+      "s3Tables",
+      "aws",
+      "catalog",
+      "objectStorage"
+    ],
+    "customDriverOptions": true
+  },
+  "runtime": {
+    "driverLinked": false
+  },
+  "source": {
+    "knowledgeEngineStatus": "recognized_no_connector",
+    "adapter": null
+  }
+}
