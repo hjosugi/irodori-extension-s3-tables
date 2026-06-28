@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "visibility": "public",
+  "extensionId": "irodori.s3-tables",
+  "connector": {
+    "id": "s3Tables.connector",
+    "engine": "s3Tables",
+    "label": "S3 Tables",
+    "aliases": [
+      "s3Tables",
+      "s3-tables",
+      "AWS S3 Tables",
+      "S3",
+      "Tables"
+    ],
+    "defaultPort": 443,
+    "wire": "lakehouse",
+    "module": "s3Tables.driver",
+    "features": [
+      "metadata",
+      "sql"
+    ]
+  },
+  "runtime": {
+    "abi": "irodori.connector.native.v1",
+    "module": {
+      "id": "s3Tables.driver",
+      "path": "dist/native",
+      "platforms": [
+        "windowsX64",
+        "windowsArm64",
+        "macosX64",
+        "macosArm64",
+        "linuxX64",
+        "linuxArm64"
+      ]
+    },
+    "crate": "irodori_extension_s3_tables",
+    "entrypoints": [
+      "irodori_extension_abi_version",
+      "irodori_connector_engine_json",
+      "irodori_extension_manifest_json",
+      "irodori_connector_config_json",
+      "irodori_connector_call_json",
+      "irodori_connector_free_buffer"
+    ],
+    "supportedCalls": [
+      "health",
+      "describe",
+      "manifest",
+      "config"
+    ],
+    "driverLinked": false
+  },
+  "source": {
+    "marketplaceId": "irodori.s3-tables",
+    "repository": "https://github.com/hjosugi/irodori-extension-s3-tables",
+    "knowledgeEngineStatus": "recognized_no_connector",
+    "adapter": null,
+    "adapterSha256": null
+  }
+}
